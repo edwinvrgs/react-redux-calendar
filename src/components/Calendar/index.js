@@ -3,7 +3,12 @@ import PropTypes                    from 'prop-types'
 
 import { DEFAULT_CALENDAR_VIEW } from '../../config/constants'
 
-import { Header, MonthlyView, YearlyView } from './components'
+import {
+  Header,
+  MonthlyView,
+  YearlyView,
+  AddReminderButton,
+} from './components'
 
 const Calendar = props => {
   const [viewType, setViewType] = useState(DEFAULT_CALENDAR_VIEW)
@@ -20,6 +25,7 @@ const Calendar = props => {
         setViewType={ setViewType }
       />
       { views[viewType] }
+      <AddReminderButton />
     </div>
   )
 }
