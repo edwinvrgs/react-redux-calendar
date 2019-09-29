@@ -2,8 +2,14 @@ React Redux Calendar
 --
 Basic calendar with Redux for state management
 
+### Notes
+- Latest version of React, using hooks for **everything**
+- Unit testing with `jest`
+- Date management with `date-fns` 
+- OpenWeatherMap API for obtaining weather info
+
 ### Project structure
-- All the components are structure by the following rules:
+- All the components are structured by the following rules:
   - A folder with the component name in *PascalCase*
   - A `index.js` file with the component code
   - A *components* folder with all depending components inside (with the same structure)
