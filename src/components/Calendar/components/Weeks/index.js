@@ -1,14 +1,14 @@
 import React     from 'react'
 import PropTypes from 'prop-types'
 
-const YearlyView = props => {
+const Weeks = props => {
   return (
     <div>
-      Yearly View
+      Weeks
     </div>
   )
 }
 
-YearlyView.propTypes = {}
+Weeks.propTypes = {}
 
-export default YearlyView
+export default Weeks
