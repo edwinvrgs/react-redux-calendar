@@ -17,7 +17,9 @@ Basic calendar with Redux for state management
 - The state is managed by Redux using the [*re-ducks*](https://github.com/something/re-ducks) pattern for file structure
   
 ### Features
- - [] Add reminder (day, time, city)
- - [] Color for reminder
+ - [x] Add reminder (day, time, city)
+ - [x] Color for reminder
  - [] Weather for reminder
- - [] Edit reminder
+ - [x] Edit reminder
+ - [x] Remove reminder
+ - [x] Remove all reminders
