@@ -1,4 +1,5 @@
 import React, { useCallback, useState } from 'react';
+import PropTypes                        from 'prop-types';
 import { useSelector }                  from 'react-redux';
 
 import Modal                               from '../../../Modal';
@@ -52,11 +53,7 @@ const Day = (props) => {
           cursor: 'pointer',
           transition: 'all .2s',
           color: isCurrentMonth ? 'black' : 'grey',
-          backgroundColor: isToday
-            ? 'lightblue'
-            : isSelected
-              ? 'lightgrey'
-              : '',
+          backgroundColor: isToday ? 'lightblue' : isSelected && 'lightgrey',
         }}
         onClick={onClick}
       >
@@ -80,6 +77,11 @@ const Day = (props) => {
   );
 };
 
-Day.propTypes = {};
+Day.propTypes = {
+  day: PropTypes.instanceOf(Date).isRequired,
+  isSelected: PropTypes.bool.isRequired,
+  isToday: PropTypes.bool.isRequired,
+  isCurrentMonth: PropTypes.bool.isRequired,
+};
 
 export default Day;

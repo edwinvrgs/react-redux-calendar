@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import { MiniReminder }      from './components';
 import { getRemindersByDay } from '../../../../utils';
 
-const LIMIT = 4;
+const REMINDERS_TO_SHOW_LIMIT = 4;
 
 const RemindersList = (props) => {
   const { day } = props;
@@ -15,15 +15,10 @@ const RemindersList = (props) => {
     <div>
       {
         remindersInThisDay
-          .slice(0, LIMIT)
-          .map((reminder) => (
-            <MiniReminder
-              key={reminder.id}
-              {...reminder}
-            />
-          ))
+          .slice(0, REMINDERS_TO_SHOW_LIMIT)
+          .map((reminder) => <MiniReminder key={reminder.id} {...reminder} />)
       }
-      {remindersInThisDay.length > LIMIT && (
+      {remindersInThisDay.length > REMINDERS_TO_SHOW_LIMIT && (
         <p>...</p>
       )}
     </div>
@@ -31,7 +26,7 @@ const RemindersList = (props) => {
 };
 
 RemindersList.propTypes = {
-  day: PropTypes.shape({}).isRequired,
+  day: PropTypes.instanceOf(Date).isRequired,
 };
 
 export default RemindersList;

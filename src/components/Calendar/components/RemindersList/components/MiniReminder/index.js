@@ -1,7 +1,8 @@
-import React from 'react';
+import React     from 'react';
+import PropTypes from 'prop-types';
 
 const MiniReminder = (props) => {
-  const { text, city, date, hour, color } = props;
+  const { text, city, color } = props;
 
   const title = `${text} - ${city}`;
 
@@ -26,6 +27,10 @@ const MiniReminder = (props) => {
   );
 };
 
-MiniReminder.propTypes = {};
+MiniReminder.propTypes = {
+  text: PropTypes.string.isRequired,
+  city: PropTypes.string.isRequired,
+  color: PropTypes.string.isRequired,
+};
 
 export default MiniReminder;

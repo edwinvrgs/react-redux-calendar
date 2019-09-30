@@ -8,7 +8,7 @@ import { remindersActions }                           from '../../state/ducks/re
 
 import { AddReminder, Week } from './components';
 
-const Calendar = (props) => {
+const Calendar = () => {
   const date = useSelector(({ calendar }) => calendar.date);
   const { nextMonth, previousMonth } = useActions(calendarActions);
   const { addReminder } = useActions(remindersActions);

@@ -1,8 +1,9 @@
 import React, { useEffect, useMemo } from 'react';
+import PropTypes                     from 'prop-types';
 import { createPortal }              from 'react-dom';
 
-const Modal = props => {
-  const { children, on, toggle = () => {} } = props;
+const Modal = (props) => {
+  const { children, on, toggle } = props;
 
   const element = useMemo(() => document.createElement('div'), []);
 
@@ -26,6 +27,13 @@ const Modal = props => {
   );
 };
 
-Modal.propTypes = {};
+Modal.propTypes = {
+  on: PropTypes.bool.isRequired,
+  toggle: PropTypes.func,
+};
+
+Modal.defaultProps = {
+  toggle: () => {},
+};
 
 export default Modal;

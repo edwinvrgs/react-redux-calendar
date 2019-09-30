@@ -1,4 +1,5 @@
 import React      from 'react';
+import PropTypes  from 'prop-types';
 import { format } from 'date-fns';
 
 import { useActions }       from '../../../../hooks';
@@ -44,6 +45,13 @@ const Reminder = (props) => {
   );
 };
 
-Reminder.propTypes = {};
+Reminder.propTypes = {
+  id: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+  city: PropTypes.string.isRequired,
+  date: PropTypes.instanceOf(Date).isRequired,
+  hour: PropTypes.instanceOf(Date).isRequired,
+  color: PropTypes.string.isRequired,
+};
 
 export default Reminder;

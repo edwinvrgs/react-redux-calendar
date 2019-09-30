@@ -1,4 +1,5 @@
 import React, { useCallback, useMemo, useState }       from 'react';
+import PropTypes                                       from 'prop-types';
 import { useSelector }                                 from 'react-redux';
 import { format, getDay, getMonth, getYear, parseISO } from 'date-fns';
 
@@ -12,7 +13,7 @@ const AddReminder = (props) => {
   const { addReminder } = props;
   const selectedDay = useSelector(({ calendar }) => calendar.selectedDay);
   const [on, toggle] = useState(false);
-  const onToggle = useCallback(() => toggle((on) => !on), []);
+  const onToggle = useCallback(() => toggle((value) => !value), []);
 
   const initialDate = useMemo(
     () => format(selectedDay, 'yyyy-MM-dd')
@@ -166,6 +167,8 @@ const AddReminder = (props) => {
   );
 };
 
-AddReminder.propTypes = {};
+AddReminder.propTypes = {
+  addReminder: PropTypes.func.isRequired,
+};
 
 export default AddReminder;
