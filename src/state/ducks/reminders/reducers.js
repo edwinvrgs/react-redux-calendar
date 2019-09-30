@@ -1,5 +1,6 @@
-import types        from './types'
-import initialState from '../../../App'
+import types         from './types'
+import { isSameDay } from 'date-fns'
+import initialState  from '../../../App'
 
 const calendar = (state = {}, action) => {
   const {type, payload} = action
@@ -17,6 +18,9 @@ const calendar = (state = {}, action) => {
         ...state.slice(0, indexToDelete),
         ...state.slice(indexToDelete + 1),
       ]
+    }
+    case types.REMOVE_ALL_REMINDERS: {
+      return [...state.filter(reminder => !isSameDay(reminder.date, payload))]
     }
     default:
       return state

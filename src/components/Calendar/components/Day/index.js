@@ -46,6 +46,10 @@ const Day = props => {
                     <Reminder key={ reminder.id } { ...reminder } />
                   ))
                 }
+                <button className="button is-warning"
+                        onClick={ () => removeAllReminders(day) }>
+                  Remove all
+                </button>
               </div>
             </div>
           </div>,
