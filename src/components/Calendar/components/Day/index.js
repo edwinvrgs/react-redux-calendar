@@ -5,16 +5,14 @@ import { getDayNumber } from '../../../../utils'
 import RemindersList    from '../RemindersList'
 
 const Day = props => {
-  const {date, isToday, isCurrentMonth} = props
-
-  console.log({isToday, isCurrentMonth})
+  const {day, isToday, isCurrentMonth} = props
 
   return (
     <div>
-      { getDayNumber(date) }
+      { getDayNumber(day) }
       <p>{ isToday && 'TODAY!' }</p>
       <p>{ isCurrentMonth && 'Current month!' }</p>
-      <RemindersList date={ date } />
+      <RemindersList day={ day } />
     </div>
   )
 }

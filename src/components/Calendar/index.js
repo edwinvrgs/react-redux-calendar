@@ -18,17 +18,28 @@ const Calendar = props => {
     <div>
       <section className="calendar">
         <header className="header">
-          <div className="month-title row">
+          <div style={ {display: 'flex', justifyContent: 'center'} }>
             <button onClick={ () => previousMonth() }>Previous</button>
             { getPrettyMonthTitle(date) }
             <button onClick={ () => nextMonth() }>Next</button>
           </div>
-          <div>
-            { weekDays.map(day => <span key={ day }>{ day }</span>) }
+          <div style={ {
+            display: 'flex',
+            flexDirection: 'row',
+            justifyContent: 'space-around',
+          } }>
+            { weekDays.map(day => (
+              <div
+                style={ {display: 'flex'} }
+                key={ day }>{ day }
+              </div>
+            )) }
           </div>
         </header>
         <div>
-          { weeks.map(week => <Week key={ week } date={ week } />) }
+          { weeks.map(week => (
+            <Week key={ week } date={ date } week={ week } />
+          )) }
         </div>
       </section>
       <AddReminderButton />

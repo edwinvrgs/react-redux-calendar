@@ -2,13 +2,13 @@ import React, { useMemo }         from 'react'
 import PropTypes                  from 'prop-types'
 import { isSameMonth, isSameDay } from 'date-fns'
 
-import Day                      from '../Day'
-import { getDays, currentDate } from '../../../../utils'
+import Day              from '../Day'
+import { getDays, now } from '../../../../utils'
 
 const Week = props => {
-  const {date} = props
+  const {date, week} = props
 
-  const days = useMemo(() => getDays(date), [date])
+  const days = useMemo(() => getDays(week), [week])
 
   return (
     <div style={ {
@@ -18,9 +18,10 @@ const Week = props => {
       { days.map(day => (
         <Day
           key={ day }
-          date={ day }
-          isToday={ isSameDay(day, currentDate) }
-          isCurrentMonth={ isSameMonth(day, currentDate) }
+          day={ day }
+          date={ date }
+          isToday={ isSameDay(day, now) }
+          isCurrentMonth={ isSameMonth(day, date) }
         />
       )) }
     </div>
