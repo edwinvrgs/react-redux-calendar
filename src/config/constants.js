@@ -1,3 +1,3 @@
-import { ENDPOINTS, ENV } from './env'
+import { ENDPOINTS, ENV } from './env';
 
-export const BASE_URL = ENDPOINTS[ENV]
+export const BASE_URL = ENDPOINTS[ENV];

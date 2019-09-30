@@ -1,10 +1,10 @@
-import React        from 'react'
-import { Provider } from 'react-redux'
+import React        from 'react';
+import { Provider } from 'react-redux';
 
-import { Calendar }   from './components'
-import configureStore from './state/store'
+import { Calendar }   from './components';
+import configureStore from './state/store';
 
-import 'bulma/bulma.sass'
+import 'bulma/bulma.sass';
 
 export const initialState = {
   calendar: {
@@ -12,20 +12,18 @@ export const initialState = {
     selectedDay: new Date(),
   },
   reminders: [],
-}
+};
 
-function App () {
-  const store = configureStore(initialState)
+function App() {
+  const store = configureStore(initialState);
 
   return (
-    <Provider store={ store }>
+    <Provider store={store}>
       <div className="App">
         <Calendar />
       </div>
     </Provider>
-  )
+  );
 }
 
-export default App
-
-
+export default App;

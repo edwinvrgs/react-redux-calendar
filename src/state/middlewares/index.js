@@ -1,1 +1,1 @@
-export { default as remindersMiddlewares } from './reminders'
+export { default as remindersMiddlewares } from './reminders';

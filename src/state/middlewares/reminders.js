@@ -1,19 +1,19 @@
-import { remindersTypes } from '../ducks/reminders'
+import { remindersTypes } from '../ducks/reminders';
 
-const addId = ({dispatch}) => next => (action) => {
+const addId = ({ dispatch }) => next => (action) => {
   const newAction = {
     ...action,
     payload: {
       ...action.payload,
       id: new Date().toISOString(),
     },
-  }
+  };
 
   if (action.type !== remindersTypes.ADD_REMINDER) {
-    next(action)
+    next(action);
   } else {
-    next(newAction)
+    next(newAction);
   }
-}
+};
 
-export default [addId]
+export default [addId];

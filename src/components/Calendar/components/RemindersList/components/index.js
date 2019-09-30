@@ -1,1 +1,1 @@
-export { default as MiniReminder } from './MiniReminder'
+export { default as MiniReminder } from './MiniReminder';

@@ -1,25 +1,30 @@
-import { applyMiddleware, compose, createStore, combineReducers } from 'redux'
-import logger
-                                                                  from 'redux-logger'
-import { remindersMiddlewares }                                   from './middlewares'
-import * as reducers                                              from './ducks'
+import {
+  applyMiddleware,
+  compose,
+  createStore,
+  combineReducers,
+}             from 'redux';
+import logger from 'redux-logger';
+
+import { remindersMiddlewares } from './middlewares';
+import * as reducers            from './ducks';
 
 const configureStore = (preloadedState) => {
-  const middlewares = [logger, ...remindersMiddlewares]
-  const middlewareEnhancer = applyMiddleware(...middlewares)
+  const middlewares = [logger, ...remindersMiddlewares];
+  const middlewareEnhancer = applyMiddleware(...middlewares);
 
-  const enhancers = [middlewareEnhancer]
-  const composedEnhancers = compose(...enhancers)
+  const enhancers = [middlewareEnhancer];
+  const composedEnhancers = compose(...enhancers);
 
-  const rootReducer = combineReducers(reducers)
+  const rootReducer = combineReducers(reducers);
 
-  const store = createStore(rootReducer, preloadedState, composedEnhancers)
+  const store = createStore(rootReducer, preloadedState, composedEnhancers);
 
   if (process.env.NODE_ENV !== 'production' && module.hot) {
-    module.hot.accept('./ducks', () => store.replaceReducer(rootReducer))
+    module.hot.accept('./ducks', () => store.replaceReducer(rootReducer));
   }
 
-  return store
-}
+  return store;
+};
 
-export default configureStore
+export default configureStore;
