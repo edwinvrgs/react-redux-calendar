@@ -1,15 +1,18 @@
-import {
-  applyMiddleware,
-  compose,
-  createStore,
-  combineReducers,
-}             from 'redux';
-import logger from 'redux-logger';
+import { applyMiddleware, combineReducers, compose, createStore } from 'redux';
+import logger                                                     from 'redux-logger';
 
 import { remindersMiddlewares } from './middlewares';
 import * as reducers            from './ducks';
 
-const configureStore = (preloadedState) => {
+export const initialState = {
+  calendar: {
+    date: new Date(),
+    selectedDay: new Date(),
+  },
+  reminders: [],
+};
+
+const configureStore = (preloadedState = initialState) => {
   const middlewares = [logger, ...remindersMiddlewares];
   const middlewareEnhancer = applyMiddleware(...middlewares);
 

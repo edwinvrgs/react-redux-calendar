@@ -6,16 +6,8 @@ import configureStore from './state/store';
 
 import 'bulma/bulma.sass';
 
-export const initialState = {
-  calendar: {
-    date: new Date(),
-    selectedDay: new Date(),
-  },
-  reminders: [],
-};
-
 function App() {
-  const store = configureStore(initialState);
+  const store = configureStore();
 
   return (
     <Provider store={store}>
