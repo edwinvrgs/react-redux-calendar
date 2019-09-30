@@ -22,7 +22,7 @@ const AddReminder = (props) => {
   );
 
   const text = useFormInput('Reminder');
-  const city = useFormInput('Rubio, Táchira');
+  const city = useFormInput('Rubio');
   const date = useFormInput(initialDate);
   const { valueAsDate, ...hour } = useTimeInput(defaultHour);
   const color = useFormInput('#A4A4A4');

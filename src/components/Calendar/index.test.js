@@ -19,8 +19,4 @@ describe('Calendar', () => {
     );
     ReactDOM.unmountComponentAtNode(div);
   });
-
-  it('should add a reminder', () => {
-
-  });
 });

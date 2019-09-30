@@ -8,6 +8,7 @@ const MiniReminder = (props) => {
 
   return (
     <div
+      data-testid="mini-reminder"
       style={{
         backgroundColor: color,
         borderRadius: '5px',
