@@ -66,6 +66,7 @@ const AddReminder = (props) => {
       <a
         className="button is-medium is-link is-pulled-right"
         onClick={onToggle}
+        style={{ fontSize: '1.3vw' }}
       >
         <span className="icon has-text-white is-large">
           <i className="fas fa-2x fa-circle fa-plus" />
