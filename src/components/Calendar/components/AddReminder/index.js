@@ -64,12 +64,13 @@ const AddReminder = (props) => {
   return (
     <>
       <a
-        className="button is-large is-pulled-right"
+        className="button is-medium is-link is-pulled-right"
         onClick={onToggle}
       >
-        <span className="icon has-text-info is-large">
+        <span className="icon has-text-white is-large">
           <i className="fas fa-2x fa-circle fa-plus" />
         </span>
+        Add reminder
       </a>
       <Modal on={on}>
         <div className="notification">
@@ -147,7 +148,7 @@ const AddReminder = (props) => {
             <div className="control">
               <button
                 onClick={onSubmit}
-                className="button is-link"
+                className="button is-success"
               >
                 Add
               </button>
@@ -155,7 +156,7 @@ const AddReminder = (props) => {
             <div className="control">
               <button
                 onClick={onToggle}
-                className="button is-text"
+                className="button is-warning"
               >
                 Cancel
               </button>

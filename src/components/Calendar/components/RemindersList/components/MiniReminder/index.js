@@ -11,13 +11,13 @@ const MiniReminder = (props) => {
       style={{
         backgroundColor: color,
         borderRadius: '5px',
-        margin: '2px 2px',
+        margin: '.1vw .1vw',
       }}
     >
       <span
         style={{
           color: 'white',
-          fontSize: '.8rem',
+          fontSize: '.8vw',
           padding: '0 5px',
         }}
       >

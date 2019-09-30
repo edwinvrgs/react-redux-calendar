@@ -45,30 +45,32 @@ const Day = (props) => {
         </div>
       </Modal>
       <div
-        className=""
+        className={`
+          ${isCurrentMonth ? 'has-text-black' : 'has-text-grey'}
+          ${isToday ? 'has-background-info' : isSelected && 'has-background-warning'}
+        `}
         style={{
           flex: 1,
-          height: '150px',
+          height: '6.4vw',
           borderLeft: 'solid 1px #EFEFEF',
           cursor: 'pointer',
           transition: 'all .2s',
-          color: isCurrentMonth ? 'black' : 'grey',
-          backgroundColor: isToday ? 'lightblue' : isSelected && 'lightgrey',
         }}
         onClick={onClick}
       >
         <div className="columns">
           <div className="column is-2">
-            <div style={{
-              fontSize: '1rem',
-              alignSelf: 'flex-start',
-              padding: '8px 0 0 8px',
-            }}
+            <span
+              className="has-text-weight-semibold"
+              style={{
+                fontSize: '1vw',
+                padding: '8px 0 0 8px',
+              }}
             >
               {getDayNumber(day)}
-            </div>
+            </span>
           </div>
-          <div className="column">
+          <div className="column is-mobile">
             <RemindersList day={day} />
           </div>
         </div>

@@ -22,52 +22,58 @@ const Calendar = () => {
         className="container"
         style={{
           display: 'block',
-          background: 'white',
-          width: '800 px',
+          width: '80vw',
           border: 'solid 1px #EFEFEF',
           margin: '10px auto',
           boxShadow: '0 0 15px 0 lightgrey',
-          fontSize: '1.3 rem',
         }}
       >
-        <section className="calendar">
+        <section className="calendar is-bordered">
           <header className="header">
-            <div style={{
-              display: 'flex',
-              fontWeight: '600',
-              fontSize: '1.8rem',
-              justifyContent: 'space-between',
-              textTransform: 'uppercase',
-              color: 'white',
-              backgroundColor: 'grey',
-            }}
+            <div
+              className="has-background-grey has-text-white is-uppercase"
+              style={{
+                display: 'flex',
+                fontWeight: '600',
+                fontSize: '2vw',
+                alignItems: 'center',
+                justifyContent: 'space-around',
+              }}
             >
               <span
                 className="icon is-large"
-                style={{ cursor: 'pointer' }}
+                style={{
+                  cursor: 'pointer',
+                  fontSize: '1vw',
+                }}
                 onClick={() => previousMonth()}
               >
                 <i className="fas fa-arrow-left" />
+                Previous
               </span>
               {getPrettyMonthTitle(date)}
               <span
                 className="icon is-large"
-                style={{ cursor: 'pointer' }}
+                style={{
+                  cursor: 'pointer',
+                  fontSize: '1vw',
+                }}
                 onClick={() => nextMonth()}
               >
+                Next
                 <i className="fas fa-arrow-right" />
               </span>
             </div>
-            <div style={{
-              display: 'flex',
-              flexDirection: 'row',
-              justifyContent: 'space-around',
-              color: 'white',
-              backgroundColor: '#2875C7',
-              cursor: 'default',
-              fontSize: '1.2rem',
-              padding: '5px 0',
-            }}
+            <div
+              className="has-background-info has-text-white has-text-weight-semibold"
+              style={{
+                display: 'flex',
+                flexDirection: 'row',
+                justifyContent: 'space-around',
+                cursor: 'default',
+                fontSize: '1vw',
+                padding: '5px 0',
+              }}
             >
               {weekDays.map((day) => (
                 <div key={day}>{day}</div>
@@ -81,7 +87,7 @@ const Calendar = () => {
           </div>
         </section>
       </div>
-      <div className="container">
+      <div className="container" style={{ width: '80vw' }}>
         <AddReminder addReminder={addReminder} />
       </div>
     </>
