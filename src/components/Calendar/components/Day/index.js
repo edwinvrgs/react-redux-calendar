@@ -12,7 +12,7 @@ import Reminder      from '../Reminder';
 import RemindersList from '../RemindersList';
 
 const Day = (props) => {
-  const { day, isSelected, isToday, isCurrentMonth } = props;
+  const { day, isSelected, isToday, isCurrentMonth, isWeekend } = props;
   const remindersInThisDay = useSelector(({ reminders }) => getRemindersByDay(reminders, day));
 
   const { removeAllReminders } = useActions(remindersActions);
@@ -46,8 +46,10 @@ const Day = (props) => {
       </Modal>
       <div
         className={`
+          ${isWeekend && 'has-text-info'}
           ${isCurrentMonth ? 'has-text-black' : 'has-text-grey'}
-          ${isToday ? 'has-background-info' : isSelected && 'has-background-warning'}
+          ${isToday ? 'has-background-info' : (isSelected && 'has-background-warning')
+                                              || (isWeekend && 'has-background-light')}
         `}
         style={{
           flex: 1,
@@ -84,6 +86,7 @@ Day.propTypes = {
   isSelected: PropTypes.bool.isRequired,
   isToday: PropTypes.bool.isRequired,
   isCurrentMonth: PropTypes.bool.isRequired,
+  isWeekend: PropTypes.bool.isRequired,
 };
 
 export default Day;

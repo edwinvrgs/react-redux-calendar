@@ -1,7 +1,7 @@
-import React, { useMemo }         from 'react';
-import PropTypes                  from 'prop-types';
-import { useSelector }            from 'react-redux';
-import { isSameDay, isSameMonth } from 'date-fns';
+import React, { useMemo }                    from 'react';
+import PropTypes                             from 'prop-types';
+import { useSelector }                       from 'react-redux';
+import { isSameDay, isSameMonth, isWeekend } from 'date-fns';
 
 import { getDays, now } from '../../../../utils';
 
@@ -27,6 +27,7 @@ const Week = (props) => {
           key={day}
           day={day}
           date={date}
+          isWeekend={isWeekend(day)}
           isSelected={isSameDay(day, selectedDay)}
           isToday={isSameDay(day, now)}
           isCurrentMonth={isSameMonth(day, date)}
