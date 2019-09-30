@@ -1,7 +1,10 @@
-import React          from 'react'
-import { Provider }   from 'react-redux'
+import React        from 'react'
+import { Provider } from 'react-redux'
+
 import { Calendar }   from './components'
 import configureStore from './state/store'
+
+import 'bulma/bulma.sass'
 
 export const initialState = {
   calendar: {
