@@ -1,10 +1,11 @@
 import { applyMiddleware, compose, createStore, combineReducers } from 'redux'
 import logger
                                                                   from 'redux-logger'
+import { remindersMiddlewares }                                   from './middlewares'
 import * as reducers                                              from './ducks'
 
 const configureStore = (preloadedState) => {
-  const middlewares = [logger]
+  const middlewares = [logger, ...remindersMiddlewares]
   const middlewareEnhancer = applyMiddleware(...middlewares)
 
   const enhancers = [middlewareEnhancer]

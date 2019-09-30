@@ -1,18 +1,14 @@
 import React     from 'react'
 import PropTypes from 'prop-types'
 
-const Reminder = props => {
-  const {text, city, date, time, color} = props
+const MiniReminder = props => {
+  const {text, city, date, hour, color} = props
 
   const title = `${ text } - ${ city }`
 
   return (
-    <div style={ {
+    <div className="tag" style={ {
       backgroundColor: color,
-      borderRadius: '3px',
-      marginTop: '2px',
-      marginRight: '4px',
-      marginLeft: '2px',
     } }>
       <span
         style={ {
@@ -27,6 +23,6 @@ const Reminder = props => {
   )
 }
 
-Reminder.propTypes = {}
+MiniReminder.propTypes = {}
 
-export default Reminder
+export default MiniReminder

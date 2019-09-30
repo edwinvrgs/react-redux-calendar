@@ -38,9 +38,15 @@ const Calendar = props => {
               color: 'white',
               backgroundColor: 'grey',
             } }>
-              <button onClick={ () => previousMonth() }>Previous</button>
+              <span className="icon is-large" style={ {cursor: 'pointer'} }
+                    onClick={ () => previousMonth() }>
+                <i className="fas fa-arrow-left" />
+              </span>
               { getPrettyMonthTitle(date) }
-              <button onClick={ () => nextMonth() }>Next</button>
+              <span className="icon is-large" style={ {cursor: 'pointer'} }
+                    onClick={ () => nextMonth() }>
+                <i className="fas fa-arrow-right" />
+              </span>
             </div>
             <div style={ {
               display: 'flex',
@@ -64,7 +70,9 @@ const Calendar = props => {
           </div>
         </section>
       </div>
-      <AddReminder addReminder={ addReminder } />
+      <div className="container">
+        <AddReminder addReminder={ addReminder } />
+      </div>
     </>
   )
 }

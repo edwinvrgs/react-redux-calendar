@@ -3,7 +3,7 @@ import PropTypes             from 'prop-types'
 import { useSelector }       from 'react-redux'
 import { isSameDay, format } from 'date-fns'
 
-import { Reminder } from './components'
+import { MiniReminder } from './components'
 
 const LIMIT = 5
 
@@ -22,20 +22,13 @@ const RemindersList = props => {
     <div>
       {
         remindersInThisDay.map((reminder, i) => (
-          <Reminder
-            key={ JSON.stringify({
-              ...reminder,
-              i,
-            }) }
+          <MiniReminder
+            key={ reminder.id }
             { ...reminder } />
         ))
       }
       { remindersInThisDay.length >= LIMIT && (
-        <span style={ {
-          fontSize: '1rem',
-          fontWeight: '600',
-          top: '-5px',
-        } }>...</span>
+        <p>...</p>
       ) }
     </div>
   )
