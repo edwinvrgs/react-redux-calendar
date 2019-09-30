@@ -1,20 +1,15 @@
-import React, { useMemo }    from 'react';
-import { useSelector }       from 'react-redux';
-import { format, isSameDay } from 'date-fns';
+import React           from 'react';
+import PropTypes       from 'prop-types';
+import { useSelector } from 'react-redux';
 
-import { MiniReminder } from './components';
+import { MiniReminder }      from './components';
+import { getRemindersByDay } from '../../../../utils';
 
 const LIMIT = 4;
 
 const RemindersList = (props) => {
   const { day } = props;
-  const reminders = useSelector(({ reminders }) => reminders);
-
-  const remindersInThisDay = useMemo(
-    () => reminders.filter((reminder) => isSameDay(day, reminder.date))
-      .sort((a, b) => format(a.hour, 't') - format(b.hour, 't')),
-    [day, reminders],
-  );
+  const remindersInThisDay = useSelector(({ reminders }) => getRemindersByDay(reminders, day));
 
   return (
     <div>
@@ -35,6 +30,8 @@ const RemindersList = (props) => {
   );
 };
 
-RemindersList.propTypes = {};
+RemindersList.propTypes = {
+  day: PropTypes.shape({}).isRequired,
+};
 
 export default RemindersList;

@@ -1,28 +1,23 @@
-import React, { useCallback, useMemo, useState } from 'react';
-import { useSelector }                           from 'react-redux';
-import { format, isSameDay }                     from 'date-fns';
+import React, { useCallback, useState } from 'react';
+import { useSelector }                  from 'react-redux';
 
-import Modal                from '../../../Modal';
-import { getDayNumber }     from '../../../../utils';
-import { useActions }       from '../../../../hooks';
-import { calendarActions }  from '../../../../state/ducks/calendar';
-import { remindersActions } from '../../../../state/ducks/reminders';
+import Modal                               from '../../../Modal';
+import { getDayNumber, getRemindersByDay } from '../../../../utils';
+import { useActions }                      from '../../../../hooks';
+import { calendarActions }                 from '../../../../state/ducks/calendar';
+import { remindersActions }                from '../../../../state/ducks/reminders';
 
 import Reminder      from '../Reminder';
 import RemindersList from '../RemindersList';
 
 const Day = (props) => {
   const { day, isSelected, isToday, isCurrentMonth } = props;
-  const reminders = useSelector(({ reminders }) => reminders);
+  const remindersInThisDay = useSelector(({ reminders }) => getRemindersByDay(reminders, day));
+
   const { removeAllReminders } = useActions(remindersActions);
   const { selectDay } = useActions(calendarActions);
-  const [on, toggle] = useState(false);
 
-  const remindersInThisDay = useMemo(
-    () => reminders.filter((reminder) => isSameDay(day, reminder.date))
-      .sort((a, b) => format(a.hour, 't') - format(b.hour, 't')),
-    [day, reminders],
-  );
+  const [on, toggle] = useState(false);
 
   const onToggle = useCallback(() => toggle((on) => !on), []);
 
