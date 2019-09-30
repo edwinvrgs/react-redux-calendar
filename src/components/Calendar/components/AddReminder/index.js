@@ -69,9 +69,9 @@ const AddReminder = (props) => {
         style={{ fontSize: '1.3vw' }}
       >
         <span className="icon has-text-white is-large">
-          <i className="fas fa-2x fa-circle fa-plus" />
+          <i className="fas fa-plus" />
         </span>
-        Add reminder
+        <span>Add reminder</span>
       </a>
       <Modal on={on}>
         <div className="notification">

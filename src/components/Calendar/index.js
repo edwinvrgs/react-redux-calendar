@@ -37,32 +37,36 @@ const Calendar = () => {
                 fontWeight: '600',
                 fontSize: '2vw',
                 alignItems: 'center',
-                justifyContent: 'space-around',
+                justifyContent: 'space-between',
               }}
             >
-              <span
-                className="icon is-large"
-                style={{
-                  cursor: 'pointer',
-                  fontSize: '1vw',
-                }}
-                onClick={() => previousMonth()}
-              >
-                <i className="fas fa-arrow-left" />
-                Previous
-              </span>
+              <a className="has-text-white" style={{ fontSize: '1.3vw' }}
+                 onClick={() => previousMonth()}>
+                <span
+                  className="icon is-large"
+                  style={{
+                    cursor: 'pointer',
+                    fontSize: '1vw',
+                  }}
+                >
+                  <i className="fas fa-arrow-left" />
+                </span>
+                <span>Previous</span>
+              </a>
               {getPrettyMonthTitle(date)}
-              <span
-                className="icon is-large"
-                style={{
-                  cursor: 'pointer',
-                  fontSize: '1vw',
-                }}
-                onClick={() => nextMonth()}
-              >
-                Next
+              <a className="has-text-white" style={{ fontSize: '1.3vw' }}
+                 onClick={() => nextMonth()}>
+                <span>Next</span>
+                <span
+                  className="icon is-large"
+                  style={{
+                    cursor: 'pointer',
+                    fontSize: '1vw',
+                  }}
+                >
                 <i className="fas fa-arrow-right" />
               </span>
+              </a>
             </div>
             <div
               className="has-background-info has-text-white has-text-weight-semibold"
