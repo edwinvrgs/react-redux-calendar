@@ -1,8 +1,8 @@
 import React, { useCallback, useMemo, useState } from 'react';
-import { createPortal }                          from 'react-dom';
 import { useSelector }                           from 'react-redux';
 import { format, isSameDay }                     from 'date-fns';
 
+import Modal                from '../../../Modal';
 import { getDayNumber }     from '../../../../utils';
 import { useActions }       from '../../../../hooks';
 import { calendarActions }  from '../../../../state/ducks/calendar';
@@ -33,30 +33,21 @@ const Day = (props) => {
 
   return (
     <>
-      {
-        remindersInThisDay.length !== 0
-        && createPortal(
-          <div className={`modal ${on && 'is-active'}`}>
-            <div className="modal-background" onClick={onToggle} />
-            <div className="modal-content">
-              <div className="notification">
-                {
-                  remindersInThisDay.map((reminder) => (
-                    <Reminder key={reminder.id} {...reminder} />
-                  ))
-                }
-                <button
-                  className="button is-warning"
-                  onClick={() => removeAllReminders(day)}
-                >
-                  Remove all
-                </button>
-              </div>
-            </div>
-          </div>,
-          document.getElementById('modal-root'),
-        )
-      }
+      <Modal on={on && remindersInThisDay.length !== 0} toggle={toggle}>
+        <div className="notification">
+          {
+            remindersInThisDay.map((reminder) => (
+              <Reminder key={reminder.id} {...reminder} />
+            ))
+          }
+          <button
+            className="button is-warning"
+            onClick={() => removeAllReminders(day)}
+          >
+            Remove all
+          </button>
+        </div>
+      </Modal>
       <div
         className=""
         style={{
