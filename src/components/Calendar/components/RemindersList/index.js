@@ -5,7 +5,7 @@ import { isSameDay, format } from 'date-fns'
 
 import { MiniReminder } from './components'
 
-const LIMIT = 5
+const LIMIT = 4
 
 const RemindersList = props => {
   const {day} = props
@@ -13,21 +13,24 @@ const RemindersList = props => {
 
   const remindersInThisDay = useMemo(
     () => reminders.filter(reminder => isSameDay(day, reminder.date))
-                   .sort((a, b) => format(a.hour, 't') - format(b.hour, 't'))
-                   .slice(0, LIMIT),
+                   .sort((a, b) => format(a.hour, 't') - format(b.hour, 't')),
     [day, reminders],
   )
 
   return (
     <div>
       {
-        remindersInThisDay.map((reminder, i) => (
-          <MiniReminder
-            key={ reminder.id }
-            { ...reminder } />
-        ))
-      }
-      { remindersInThisDay.length >= LIMIT && (
+        remindersInThisDay
+          .slice(0, LIMIT)
+          .map((reminder) => (
+            <MiniReminder
+              key={ reminder.id }
+              { ...reminder } />
+          ))
+      }{
+      console.log({remindersInThisDay})
+    }
+      { remindersInThisDay.length > LIMIT && (
         <p>...</p>
       ) }
     </div>

@@ -7,8 +7,10 @@ const MiniReminder = props => {
   const title = `${ text } - ${ city }`
 
   return (
-    <div className="tag" style={ {
+    <div style={ {
       backgroundColor: color,
+      borderRadius: '5px',
+      margin: '2px 2px',
     } }>
       <span
         style={ {
@@ -17,7 +19,7 @@ const MiniReminder = props => {
           padding: '0 5px',
         } }
       >
-        { title.length > 18 ? `${ title.substring(0, 18) }...` : title }
+        { title.length > 16 ? `${ title.substring(0, 16) }...` : title }
       </span>
     </div>
   )

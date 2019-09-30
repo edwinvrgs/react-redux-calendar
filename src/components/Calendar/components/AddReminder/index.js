@@ -1,10 +1,9 @@
-import React, { useState, useCallback }                from 'react'
+import React, { useMemo, useState, useCallback }       from 'react'
 import { createPortal }                                from 'react-dom'
 import PropTypes                                       from 'prop-types'
 import { format, parseISO, getYear, getMonth, getDay } from 'date-fns'
 
 import { useFormInput, useTimeInput } from '../../../../hooks'
-import { now }                        from '../../../../utils'
 import { useSelector }                from 'react-redux'
 
 const defaultHour = '12:00'
@@ -16,11 +15,16 @@ const AddReminder = props => {
   const [on, toggle] = useState(false)
   const onToggle = useCallback(() => toggle(on => !on), [])
 
+  const initialDate = useMemo(
+    () => format(selectedDay, 'yyyy-MM-dd').toString(),
+    [selectedDay],
+  )
+
   const text = useFormInput('Reminder')
   const city = useFormInput('Rubio, Táchira')
-  const date = useFormInput(format(selectedDay, 'yyyy-MM-dd').toString())
+  const date = useFormInput(initialDate)
   const {valueAsDate, ...hour} = useTimeInput(defaultHour)
-  const color = useFormInput('#000000')
+  const color = useFormInput('#A4A4A4')
 
   const onSubmit = useCallback(() => {
       if (date.value && text.value) {
@@ -97,7 +101,6 @@ const AddReminder = props => {
                     </div>
                   </div>
                 </div>
-
 
                 <div className="field is-horizontal">
                   <div className="field-label is-normal">
