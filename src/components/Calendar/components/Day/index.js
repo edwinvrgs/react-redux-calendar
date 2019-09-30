@@ -34,7 +34,7 @@ const Day = (props) => {
   return (
     <>
       <Modal on={on && remindersInThisDay.length !== 0} toggle={toggle}>
-        <div className="notification">
+        <div className="notification" style={{ paddingRight: '1.5em' }}>
           {
             remindersInThisDay.map((reminder) => (
               <Reminder key={reminder.id} {...reminder} />
