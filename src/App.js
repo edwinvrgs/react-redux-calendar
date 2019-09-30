@@ -8,7 +8,7 @@ export const initialState = {
     date: new Date(),
     selectedDay: new Date(),
   },
-  reminders: [{}],
+  reminders: [],
 }
 
 function App () {

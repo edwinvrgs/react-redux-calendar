@@ -1,9 +1,7 @@
 const CLEAR = 'reminders/CLEAR'
-const NEXT_MONTH = 'reminders/NEXT_MONTH'
-const PREVIOUS_MONTH = 'reminders/PREVIOUS_MONTH'
+const ADD_REMINDER = 'reminders/ADD_REMINDER'
 
 export default {
   CLEAR,
-  NEXT_MONTH,
-  PREVIOUS_MONTH,
+  ADD_REMINDER,
 }

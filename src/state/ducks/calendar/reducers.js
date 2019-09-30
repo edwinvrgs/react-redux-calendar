@@ -4,8 +4,8 @@ import initialState             from '../../../App'
 
 const calendar = (state = {}, action) => {
   const {date} = state
-  const {payload} = action
-  switch (action.type) {
+  const {type, payload} = action
+  switch (type) {
     case types.CLEAR: {
       return initialState.calendar
     }

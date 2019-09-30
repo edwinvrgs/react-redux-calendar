@@ -24,7 +24,7 @@ export const getWeeks = (date = now) => {
   return eachWeekOfInterval({start: startOfMonth(date), end: endOfMonth(date)})
 }
 
-export const getWeekDays = (date = now, format = 'EEE') => {
+export const getWeekDays = (date = now, format = 'EEEE') => {
   const arr = eachDayOfInterval(
     {start: startOfWeek(date), end: endOfWeek(date)})
   return arr.reduce((accum, day) => [...accum, formatFn(day, format)], [])

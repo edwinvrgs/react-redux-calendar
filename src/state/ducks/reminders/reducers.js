@@ -3,22 +3,13 @@ import types                    from './types'
 import initialState             from '../../../App'
 
 const calendar = (state = {}, action) => {
-  const {date} = state
-  switch (action.type) {
+  const {type, payload} = action
+  switch (type) {
     case types.CLEAR: {
-      return initialState.calendar
+      return initialState.reminder
     }
-    case types.NEXT_MONTH: {
-      return {
-        ...state,
-        date: addMonths(date, 1),
-      }
-    }
-    case types.PREVIOUS_MONTH: {
-      return {
-        ...state,
-        date: subMonths(date, 1),
-      }
+    case types.ADD_REMINDER: {
+      return [...state, payload]
     }
     default:
       return state
