@@ -4,7 +4,6 @@ import { useSelector }       from 'react-redux'
 import { isSameDay, format } from 'date-fns'
 
 import { Reminder } from './components'
-import diff         from 'redux-logger/src/diff'
 
 const LIMIT = 5
 
@@ -32,7 +31,11 @@ const RemindersList = props => {
         ))
       }
       { remindersInThisDay.length >= LIMIT && (
-        <span style={ {fontSize: '1rem', fontWeight: '600'} }>...</span>
+        <span style={ {
+          fontSize: '1rem',
+          fontWeight: '600',
+          top: '-5px',
+        } }>...</span>
       ) }
     </div>
   )

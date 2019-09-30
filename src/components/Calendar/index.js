@@ -18,7 +18,7 @@ const Calendar = props => {
 
   return (
     <>
-      <div style={ {
+      <div className="container" style={ {
         display: 'block',
         background: 'white',
         width: '800 px',

@@ -11,14 +11,14 @@ const Reminder = props => {
       backgroundColor: color,
       borderRadius: '3px',
       marginTop: '2px',
-      marginRight: '2px',
+      marginRight: '4px',
       marginLeft: '2px',
     } }>
       <span
         style={ {
           color: 'white',
-          fontSize: '.7rem',
-          padding: '5px',
+          fontSize: '.8rem',
+          padding: '0 5px',
         } }
       >
         { title.length > 18 ? `${ title.substring(0, 18) }...` : title }

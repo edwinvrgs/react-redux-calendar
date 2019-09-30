@@ -12,6 +12,7 @@ const Day = props => {
 
   return (
     <div
+      className=""
       style={ {
         flex: 1,
         height: '150px',
@@ -27,14 +28,20 @@ const Day = props => {
       } }
       onClick={ () => selectDay(day) }
     >
-      <div style={ {
-        fontSize: '1rem',
-        alignSelf: 'flex-start',
-        padding: '8px 0 0 8px',
-      } }>
-        { getDayNumber(day) }
+      <div className="columns">
+        <div className="column is-2">
+          <div style={ {
+            fontSize: '1rem',
+            alignSelf: 'flex-start',
+            padding: '8px 0 0 8px',
+          } }>
+            { getDayNumber(day) }
+          </div>
+        </div>
+        <div className="column">
+          <RemindersList day={ day } />
+        </div>
       </div>
-      <RemindersList day={ day } />
     </div>
   )
 }
