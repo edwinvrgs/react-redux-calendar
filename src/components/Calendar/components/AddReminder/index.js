@@ -5,18 +5,20 @@ import { format, parseISO, getYear, getMonth, getDay } from 'date-fns'
 
 import { useFormInput, useTimeInput } from '../../../../hooks'
 import { now }                        from '../../../../utils'
+import { useSelector }                from 'react-redux'
 
 const defaultHour = '12:00'
 const defaultHourArray = defaultHour.split(':')
 
 const AddReminder = props => {
   const {addReminder} = props
+  const selectedDay = useSelector(({calendar}) => calendar.selectedDay)
   const [on, toggle] = useState(false)
   const onToggle = useCallback(() => toggle(on => !on), [])
 
   const text = useFormInput('Reminder')
   const city = useFormInput('Rubio, Táchira')
-  const date = useFormInput(format(now, 'yyyy-MM-dd').toString())
+  const date = useFormInput(format(selectedDay, 'yyyy-MM-dd').toString())
   const {valueAsDate, ...hour} = useTimeInput(defaultHour)
   const color = useFormInput('#000000')
 
