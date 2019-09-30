@@ -20,7 +20,7 @@ const Day = (props) => {
 
   const [on, toggle] = useState(false);
 
-  const onToggle = useCallback(() => toggle((on) => !on), []);
+  const onToggle = useCallback(() => toggle((value) => !value), []);
 
   const onClick = useCallback(() => {
     selectDay(day);

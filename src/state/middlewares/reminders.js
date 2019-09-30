@@ -1,6 +1,6 @@
 import { remindersTypes } from '../ducks/reminders';
 
-const addId = ({ dispatch }) => next => (action) => {
+const addId = () => (next) => (action) => {
   const newAction = {
     ...action,
     payload: {

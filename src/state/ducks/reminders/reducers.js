@@ -15,7 +15,6 @@ const calendar = (state = {}, action) => {
     }
     case types.REMOVE_REMINDER: {
       const indexToDelete = state.findIndex((el) => el.id === payload);
-      console.log({ indexToDelete });
       return [
         ...state.slice(0, indexToDelete),
         ...state.slice(indexToDelete + 1),
