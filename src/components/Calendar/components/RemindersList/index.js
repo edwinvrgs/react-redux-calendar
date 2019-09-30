@@ -27,9 +27,7 @@ const RemindersList = props => {
               key={ reminder.id }
               { ...reminder } />
           ))
-      }{
-      console.log({remindersInThisDay})
-    }
+      }
       { remindersInThisDay.length > LIMIT && (
         <p>...</p>
       ) }
