@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 const RemindersList = props => {
   return (
     <div>
-      RemindersList
+      no reminders for now, je
     </div>
   )
 }

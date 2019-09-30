@@ -4,6 +4,7 @@ import initialState             from '../../../App'
 
 const calendar = (state = {}, action) => {
   const {date} = state
+  const {payload} = action
   switch (action.type) {
     case types.CLEAR: {
       return initialState.calendar
@@ -18,6 +19,12 @@ const calendar = (state = {}, action) => {
       return {
         ...state,
         date: subMonths(date, 1),
+      }
+    }
+    case types.SELECT_DAY: {
+      return {
+        ...state,
+        selectedDay: payload,
       }
     }
     default:
