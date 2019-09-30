@@ -1,9 +1,10 @@
-import React, { useMemo } from 'react'
-import PropTypes          from 'prop-types'
-import { useSelector }    from 'react-redux'
-import { isSameDay }      from 'date-fns'
+import React, { useMemo }    from 'react'
+import PropTypes             from 'prop-types'
+import { useSelector }       from 'react-redux'
+import { isSameDay, format } from 'date-fns'
 
 import { Reminder } from './components'
+import diff         from 'redux-logger/src/diff'
 
 const LIMIT = 5
 
@@ -13,6 +14,7 @@ const RemindersList = props => {
 
   const remindersInThisDay = useMemo(
     () => reminders.filter(reminder => isSameDay(day, reminder.date))
+                   .sort((a, b) => format(a.hour, 't') - format(b.hour, 't'))
                    .slice(0, LIMIT),
     [day, reminders],
   )
@@ -20,12 +22,17 @@ const RemindersList = props => {
   return (
     <div>
       {
-        remindersInThisDay.map(reminder => (
-          <Reminder key={ JSON.stringify(reminder) } { ...reminder } />
+        remindersInThisDay.map((reminder, i) => (
+          <Reminder
+            key={ JSON.stringify({
+              ...reminder,
+              i,
+            }) }
+            { ...reminder } />
         ))
       }
       { remindersInThisDay.length >= LIMIT && (
-        <span>...</span>
+        <span style={ {fontSize: '1rem', fontWeight: '600'} }>...</span>
       ) }
     </div>
   )
