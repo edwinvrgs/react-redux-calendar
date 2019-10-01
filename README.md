@@ -5,9 +5,9 @@ Basic calendar with Redux for state management.
 ### Notes
 - Latest version of React, using hooks for **everything**.
 - Latest version of Redux, using hooks for **everything** (again).
-- Unit testing with `jest`.
+- Unit testing with `jest` and `react-test-renderer`.
 - Date management with `date-fns` .
-- OpenWeatherMap API for obtaining weather info.
+- OpenWeatherMap API for obtaining weather info (still in progress).
 
 ### Project structure
 - All the components are structured by the following rules:
