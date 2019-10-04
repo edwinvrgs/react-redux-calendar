@@ -18,17 +18,13 @@ describe('App', () => {
     const { getByTestId, getByText } = render(<App />);
 
     // Click add reminder button
-    const addReminderButton = getByText('Add reminder');
-    fireEvent.click(addReminderButton);
+    fireEvent.click(getByText('Add reminder'));
 
     // Confirm the reminder
-    const addButton = getByText('Add');
-    fireEvent.click(addButton);
-
-    const reminder = getByTestId('mini-reminder');
+    fireEvent.click(getByText('Add'));
 
     // Verify the render of the reminder
-    expect(reminder)
+    expect(getByTestId('mini-reminder'))
       .toBeInTheDocument();
   });
 });

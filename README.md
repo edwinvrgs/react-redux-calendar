@@ -26,4 +26,10 @@ Basic calendar with Redux for state management.
  - [x] Remove all reminders.
 
 ### Try it!
+In your local:
+- Clone the project
+- `npm start`
+- Play around!
+
+On the go:
 [react-redux-calendar on Netlify](https://react-redux-calendar.netlify.com)
